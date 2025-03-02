@@ -1,3 +1,4 @@
+import { IMaterial } from './material.types';
 import { IBase } from './root.types'
 
 export interface IModel extends IBase {
