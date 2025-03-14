@@ -7,3 +7,4 @@ export interface ICart extends IBase {
     models: IModelExecution[];
     is_current: boolean;
 }
+export type TypeCartRequest = Omit<ICart, 'id'>;

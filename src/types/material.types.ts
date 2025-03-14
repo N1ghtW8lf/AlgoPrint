@@ -9,3 +9,4 @@ export interface IMaterial extends IBase {
     amount: number,
     plastic: IPlastic
 }
+export type TypeMaterialRequest = Omit<IMaterial, 'id'>;

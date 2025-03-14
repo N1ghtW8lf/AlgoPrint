@@ -19,6 +19,7 @@ export interface IModel extends IBase {
     images: string[],
     type: keyof typeof EnumMaterialType
 }
+export type TypeModelRequest = Omit<IModel, 'id'>;
 
 export interface IModelExecution extends IBase {
     model: IModel,
@@ -29,3 +30,4 @@ export interface IModelExecution extends IBase {
     is_active: boolean,
     filament_used: number,
 }
+export type TypeModelExecutionRequest = Omit<IModelExecution, 'id'>;

@@ -17,3 +17,4 @@ export interface IOrder extends IBase {
     created_at: Date;
     updated_at: Date;
 }
+export type TypeOrderRequest = Omit<IOrder, 'id'>[];

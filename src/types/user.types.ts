@@ -5,3 +5,4 @@ export interface IUser extends IBase {
     last_name: string;
     email: string;    
 }
+export type TypeUserRequest = Omit<IUser, 'id'>;

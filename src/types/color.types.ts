@@ -4,3 +4,4 @@ export interface IColor extends IBase {
     name: string;
     hex: string;
 }
+export type TypeColorRequest = Omit<IColor, 'id'>;
