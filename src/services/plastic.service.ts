@@ -1,5 +1,5 @@
 import { axiosClassic } from '@/api/interceptors/root.interceptor';
-import { TypePlasticRequest } from '@/types/plastic.types';
+import { type TypePlasticRequest } from '@/types/plastic.types';
 
 class PlasticService {
   private BASE_URL = "/plastics";
@@ -20,7 +20,7 @@ class PlasticService {
   }
 
   async update(id: string, data: Partial<TypePlasticRequest>) {
-    const response = await axiosClassic.put(`${this.BASE_URL}/${id}`, { ...data });
+    const response = await axiosClassic.patch(`${this.BASE_URL}/${id}`, { ...data });
     return response.data;
   }
 

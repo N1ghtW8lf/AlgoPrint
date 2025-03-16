@@ -1,5 +1,5 @@
 import { axiosClassic } from '@/api/interceptors/root.interceptor';
-import { TypeOrderRequest } from '@/types/order.types';
+import { type TypeOrderRequest } from '@/types/order.types';
 
 class OrderService {
   private BASE_URL = "/orders";
@@ -20,7 +20,7 @@ class OrderService {
   }
 
   async update(id: string, data: Partial<TypeOrderRequest>) {
-    const response = await axiosClassic.put(`${this.BASE_URL}/${id}`, { ...data });
+    const response = await axiosClassic.patch(`${this.BASE_URL}/${id}`, { ...data });
     return response.data;
   }
 

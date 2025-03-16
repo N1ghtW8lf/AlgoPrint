@@ -1,5 +1,5 @@
 import { axiosClassic } from '@/api/interceptors/root.interceptor';
-import { TypeCartRequest } from '@/types/cart.types';
+import { type TypeCartRequest } from '@/types/cart.types';
 
 class CartService {
   private BASE_URL = "/carts";
@@ -20,7 +20,7 @@ class CartService {
   }
 
   async update(id: string, data: Partial<TypeCartRequest>) {
-    const response = await axiosClassic.put(`${this.BASE_URL}/${id}`, { ...data });
+    const response = await axiosClassic.patch(`${this.BASE_URL}/${id}`, { ...data });
     return response.data;
   }
 

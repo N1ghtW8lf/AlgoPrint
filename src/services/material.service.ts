@@ -1,5 +1,5 @@
 import { axiosClassic } from '@/api/interceptors/root.interceptor';
-import { TypeMaterialRequest } from '@/types/material.types';
+import { type TypeMaterialRequest } from '@/types/material.types';
 
 class MaterialService {
   private BASE_URL = "/materials";
@@ -20,7 +20,7 @@ class MaterialService {
   }
 
   async update(id: string, data: Partial<TypeMaterialRequest>) {
-    const response = await axiosClassic.post(this.BASE_URL, { ...data });
+    const response = await axiosClassic.patch(`${this.BASE_URL}/${id}`, { ...data });
     return response.data;
   }
 

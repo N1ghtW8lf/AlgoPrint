@@ -1,8 +1,17 @@
 import { axiosClassic } from '@/api/interceptors/root.interceptor';
-import { TypeModelRequest } from '@/types/model.types';
+import { type TypeModelRequest } from '@/types/model.types';
+import axios from 'axios';
 
 class ModelService {
   private BASE_URL = "/models";
+
+  private axiosMultipart = axios.create({
+    baseURL: process.env.BASE_API_URL,
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+    withCredentials: true,
+  });
 
   async list() {
     const response = await axiosClassic.get(this.BASE_URL);
@@ -13,14 +22,14 @@ class ModelService {
     const response = await axiosClassic.get(`${this.BASE_URL}/${id}`);
     return response.data;
   }
-
+  
   async create(data: TypeModelRequest) {
-    const response = await axiosClassic.post(this.BASE_URL, { ...data });
+    const response = await this.axiosMultipart.post(this.BASE_URL, { ...data });
     return response.data;
   }
 
   async update(id: string, data: Partial<TypeModelRequest>) {
-    const response = await axiosClassic.post(this.BASE_URL, { ...data });
+    const response = await this.axiosMultipart.patch(this.BASE_URL, { ...data });
     return response.data;
   }
 

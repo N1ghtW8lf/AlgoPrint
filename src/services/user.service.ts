@@ -1,5 +1,5 @@
 import { axiosClassic } from '@/api/interceptors/root.interceptor';
-import { TypeUserRequest } from '@/types/user.types';
+import { type TypeUserRequest } from '@/types/user.types';
 
 class UserService {
   private BASE_URL = "/users";
@@ -11,11 +11,6 @@ class UserService {
 
   async retrieve(id: string) {
     const response = await axiosClassic.get(`${this.BASE_URL}/${id}`);
-    return response.data;
-  }
-
-  async create(data: TypeUserRequest) {
-    const response = await axiosClassic.post(this.BASE_URL, { ...data });
     return response.data;
   }
 
